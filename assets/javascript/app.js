@@ -4,14 +4,14 @@ $(document).ready( function() {
 });
 
 
-var time = 10;
+var time;
 var intervalId;
 
-
+//starts Game
 function gameStart() {
     clearInterval(intervalId);
     intervalId = setInterval(decrement, 1000);
-
+    time = 20;
        
     for (var i = 0; i < questions.length; i++) {
       
@@ -28,10 +28,6 @@ function gameStart() {
 };
   
 
-//  The decrement function.
-
-
-  //  The stop function
   function stop() {
       clearInterval(intervalId);
 };
@@ -65,6 +61,7 @@ function gameStart() {
     console.log("Num incorrect " + incorrect);
     console.log("Num unanswered " + numberUnanswered);
 };  
+
 function decrement() {
     time--;
    $("#time-left").html("<h2> Time Remaining: " + time + "</h2>");
@@ -72,6 +69,7 @@ function decrement() {
            stop();
            score();
            clear();
+
    }
 
 }; 
@@ -85,11 +83,6 @@ function gameEnd(){
     score()
     $("#questions").empty();
 };
-
-
-// function submit() {
-//     $("#submitButton").on("click", gameEnd);
-// }
 
 
 var questions = 
