@@ -1,11 +1,12 @@
-window.onload = function() {
+$(document).ready( function() {
     $("#start").on("click", gameStart);
-};
+    $("#submitButton").on("click", gameEnd);
+});
 
 
 var time = 10;
 var intervalId;
-var clockRunning = false;
+
 
 function gameStart() {
     clearInterval(intervalId);
@@ -13,39 +14,27 @@ function gameStart() {
 
        
     for (var i = 0; i < questions.length; i++) {
+      
 
-              
-
-    $("#questions").append('<div class="font-weight-bold">' + (questions[i].quest) + "</div>");
+        $("#questions").append('<div class="font-weight-bold">' + (questions[i].quest) + "</div>");
 
 
-    $("#questions").append('<div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="inlineRadioOptions'+i+'" id="inlineRadio1" value="choice1"><label class="form-check-label" for="inlineRadio1">' + questions[i].choices[0] + "</label>" + "</div>");
-    $("#questions").append('<div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="inlineRadioOptions'+i+'" id="inlineRadio2" value="choice2"><label class="form-check-label" for="inlineRadio2">' + questions[i].choices[1] + "</label>" + "</div>");
-    $("#questions").append('<div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="inlineRadioOptions'+i+'" id="inlineRadio3" value="choice3"><label class="form-check-label" for="inlineRadio3">' + questions[i].choices[2] + "</label>" + "</div>");
-    $("#questions").append('<div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="inlineRadioOptions'+i+'" id="inlineRadio4" value="choice4"><label class="form-check-label" for="inlineRadio4">' + questions[i].choices[3] + "</label>" + "</div>");
-    
-       
-  }
-}
-  //  The decrement function.
-  function decrement() {
-         time--;
-        $("#time-left").html("<h2> Time Remaining: " + time + "</h2>");
-       // if ($("#submitButton").on("click")) {
-        //     stop();
-        //     score();
-        // }
-        if (time === 0) {
-        stop();
-        score();
-        }
-    
-} 
+        $("#questions").append('<div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="inlineRadioOptions'+i+'" id="inlineRadio1" value="choice1"><label class="form-check-label" for="inlineRadio1">' + questions[i].choices[0] + "</label>" + "</div>");
+        $("#questions").append('<div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="inlineRadioOptions'+i+'" id="inlineRadio2" value="choice2"><label class="form-check-label" for="inlineRadio2">' + questions[i].choices[1] + "</label>" + "</div>");
+        $("#questions").append('<div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="inlineRadioOptions'+i+'" id="inlineRadio3" value="choice3"><label class="form-check-label" for="inlineRadio3">' + questions[i].choices[2] + "</label>" + "</div>");
+        $("#questions").append('<div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="inlineRadioOptions'+i+'" id="inlineRadio4" value="choice4"><label class="form-check-label" for="inlineRadio4">' + questions[i].choices[3] + "</label>" + "</div>");
+     }
+  $(".hide").css("visibility", "visible")
+};
+  
+
+//  The decrement function.
+
 
   //  The stop function
   function stop() {
       clearInterval(intervalId);
-  };
+};
 
   function score(){
     var userAnswer;
@@ -75,16 +64,32 @@ function gameStart() {
     console.log("Num correct " + correct);
     console.log("Num incorrect " + incorrect);
     console.log("Num unanswered " + numberUnanswered);
-}  
+};  
+function decrement() {
+    time--;
+   $("#time-left").html("<h2> Time Remaining: " + time + "</h2>");
+       if (time === 0) {
+           stop();
+           score();
+           clear();
+   }
 
-// function gameEnd(){
+}; 
+function clear () {
+    $("#questions").empty();
+};
 
+
+function gameEnd(){
+    stop()
+    score()
+    $("#questions").empty();
+};
+
+
+// function submit() {
+//     $("#submitButton").on("click", gameEnd);
 // }
-
-
-function submit() {
-    $("#submitButton").on("click", gameEnd);
-}
 
 
 var questions = 
@@ -142,9 +147,6 @@ var questions =
     choices: ["Lion", "Bear", "Duck", "Monkey"],
     answer: "choice4",
 },
-
-
-
 ]
 
 console.log(questions);

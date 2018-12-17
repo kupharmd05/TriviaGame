@@ -1,11 +1,20 @@
 body {
-    
-    background-image: url(../images/friends1.jpg) no-repeat center fixed;
+    background-image: url("/assets/images/friends1.jpg") no-repeat center fixed;
     background-size: cover;
-    background: red;
-};
+    /* background: red; */
+}
 
 #questions {
     background: white;
     z-index: 2;
+}
+
+.hide {
+    visibility: hidden;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.grade {
+    background: white;
 }
