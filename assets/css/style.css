@@ -1,0 +1,11 @@
+body {
+    
+    background-image: url(../images/friends1.jpg) no-repeat center fixed;
+    background-size: cover;
+    background: red;
+};
+
+#questions {
+    background: white;
+    z-index: 2;
+}
