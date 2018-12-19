@@ -9,9 +9,10 @@ var intervalId;
 
 //starts Game
 function gameStart() {
+    
     clearInterval(intervalId);
     intervalId = setInterval(decrement, 1000);
-    time = 20;
+    time = 30;
        
     for (var i = 0; i < questions.length; i++) {
       
@@ -25,6 +26,8 @@ function gameStart() {
         $("#questions").append('<div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="inlineRadioOptions'+i+'" id="inlineRadio4" value="choice4"><label class="form-check-label" for="inlineRadio4">' + questions[i].choices[3] + "</label>" + "</div>");
      }
   $(".hide").css("visibility", "visible")
+     
+  
 };
   
 
@@ -75,6 +78,7 @@ function decrement() {
 }; 
 function clear () {
     $("#questions").empty();
+    
 };
 
 
