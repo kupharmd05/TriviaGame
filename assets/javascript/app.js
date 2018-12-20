@@ -20,13 +20,15 @@ function gameStart() {
         $("#questions").append('<div class="font-weight-bold">' + (questions[i].quest) + "</div>");
 
 
-        $("#questions").append('<div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="inlineRadioOptions'+i+'" id="inlineRadio1" value="choice1"><label class="form-check-label" for="inlineRadio1">' + questions[i].choices[0] + "</label>" + "</div>");
-        $("#questions").append('<div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="inlineRadioOptions'+i+'" id="inlineRadio2" value="choice2"><label class="form-check-label" for="inlineRadio2">' + questions[i].choices[1] + "</label>" + "</div>");
-        $("#questions").append('<div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="inlineRadioOptions'+i+'" id="inlineRadio3" value="choice3"><label class="form-check-label" for="inlineRadio3">' + questions[i].choices[2] + "</label>" + "</div>");
-        $("#questions").append('<div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="inlineRadioOptions'+i+'" id="inlineRadio4" value="choice4"><label class="form-check-label" for="inlineRadio4">' + questions[i].choices[3] + "</label>" + "</div>");
+        $("#questions").append('<div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="inlineRadioOptions'+i+'" id="inlineRadio1'+i+'" value="choice1"><label class="form-check-label" for="inlineRadio1'+i+'">' + questions[i].choices[0] + "</label>" + "</div>");
+        $("#questions").append('<div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="inlineRadioOptions'+i+'" id="inlineRadio2'+i+'" value="choice2"><label class="form-check-label" for="inlineRadio2'+i+'">' + questions[i].choices[1] + "</label>" + "</div>");
+        $("#questions").append('<div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="inlineRadioOptions'+i+'" id="inlineRadio3'+i+'" value="choice3"><label class="form-check-label" for="inlineRadio3'+i+'">' + questions[i].choices[2] + "</label>" + "</div>");
+        $("#questions").append('<div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="inlineRadioOptions'+i+'" id="inlineRadio4'+i+'" value="choice4"><label class="form-check-label" for="inlineRadio4'+i+'">' + questions[i].choices[3] + "</label>" + "</div>");
      }
   $(".hide").css("visibility", "visible")
-     
+    
+  //Trying to clear the grading section for a second play
+  //  clearAnswers();
   
 };
   
@@ -63,7 +65,9 @@ function gameStart() {
     console.log("Num correct " + correct);
     console.log("Num incorrect " + incorrect);
     console.log("Num unanswered " + numberUnanswered);
-};  
+    };  
+    
+
 
 function decrement() {
     time--;
@@ -78,7 +82,10 @@ function decrement() {
 }; 
 function clear () {
     $("#questions").empty();
-    
+};
+
+function clearAnswers() {
+    $(".grade").empty();
 };
 
 
