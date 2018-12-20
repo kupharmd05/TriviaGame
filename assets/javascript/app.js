@@ -26,9 +26,10 @@ function gameStart() {
         $("#questions").append('<div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="inlineRadioOptions'+i+'" id="inlineRadio4'+i+'" value="choice4"><label class="form-check-label" for="inlineRadio4'+i+'">' + questions[i].choices[3] + "</label>" + "</div>");
      }
   $(".hide").css("visibility", "visible")
-    
-  //Trying to clear the grading section for a second play
-  //  clearAnswers();
+  $("#correct").empty();
+  $("#wrong").empty();
+  $("#notAnswered").empty();  
+  
   
 };
   
